@@ -3,8 +3,8 @@ package create
 import (
 	"fmt"
 	"github.com/duke-git/lancet/v2/strutil"
-	"github.com/go-nunu/nunu/internal/pkg/helper"
-	"github.com/go-nunu/nunu/tpl"
+	"github.com/liunian-zy/nunu/internal/pkg/helper"
+	"github.com/liunian-zy/nunu/tpl"
 	"github.com/spf13/cobra"
 	"log"
 	"os"

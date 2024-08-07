@@ -9,8 +9,8 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"github.com/go-nunu/nunu/config"
-	"github.com/go-nunu/nunu/internal/pkg/helper"
+	"github.com/liunian-zy/nunu/config"
+	"github.com/liunian-zy/nunu/internal/pkg/helper"
 	"github.com/spf13/cobra"
 )
 

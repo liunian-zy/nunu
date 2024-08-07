@@ -6,7 +6,7 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/go-nunu/nunu/config"
+	"github.com/liunian-zy/nunu/config"
 	"github.com/spf13/cobra"
 )
 
