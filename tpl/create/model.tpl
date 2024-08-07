@@ -7,5 +7,5 @@ type {{ .StructName }} struct {
 }
 
 func (m *{{ .StructName }}) TableName() string {
-    return "{{ .StructNameSnakeCase }}"
+    return "{{ .TableName }}"
 }

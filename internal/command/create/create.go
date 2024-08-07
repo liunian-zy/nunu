@@ -24,6 +24,7 @@ type Create struct {
 	StructNameFirstChar  string
 	StructNameSnakeCase  string
 	IsFull               bool
+	TableName            string
 }
 
 func NewCreate() *Create {
@@ -77,14 +78,14 @@ var CmdCreateModel = &cobra.Command{
 	Use:     "model",
 	Short:   "Create a new model",
 	Example: "nunu create model user",
-	Args:    cobra.ExactArgs(1),
+	Args:    cobra.RangeArgs(1, 2),
 	Run:     runCreate,
 }
 var CmdCreateAll = &cobra.Command{
 	Use:     "all",
 	Short:   "Create a new handler & service & repository & model",
 	Example: "nunu create all user",
-	Args:    cobra.ExactArgs(1),
+	Args:    cobra.RangeArgs(1, 2),
 	Run:     runCreate,
 }
 
@@ -98,7 +99,11 @@ func runCreate(cmd *cobra.Command, args []string) {
 	c.StructNameLowerFirst = strutil.LowerFirst(c.StructName)
 	c.StructNameFirstChar = string(c.StructNameLowerFirst[0])
 	c.StructNameSnakeCase = strutil.SnakeCase(c.StructName)
-
+	if len(args) > 1 {
+		c.TableName = args[1]
+	} else {
+		c.TableName = c.StructNameSnakeCase
+	}
 	switch c.CreateType {
 	case "handler", "service", "repository", "model":
 		c.genFile()
